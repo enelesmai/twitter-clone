@@ -13,13 +13,21 @@
  *= require_tree .
  *= require_self
  */
-
- @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto+Slab|Open+Sans');
-
- // override the Bulma variables here
- $subtitle-line-height: 1.5;
- $family-sans-serif: 'Open Sans', Helvetica, Arial, sans-serif;
- $family-monospace: 'Source Code Pro', monospace;
  
- // import bulma and optionally the extensions
  @import "bulma";
+
+ .navbar-brand .title {
+     color: white;
+ }
+
+ // round images
+ .image {
+     border-radius: 50%;
+     img {
+         border-radius: 50%;
+     }
+ }
+
+ .notifications:not(:last-child) {
+     margin-bottom: 0;
+ }
