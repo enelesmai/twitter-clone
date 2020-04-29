@@ -34,7 +34,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.1.0', require: false 
+# check rubygems to see what the latest version is
+gem 'bulma-rails', '~> 0.8.0'
+# optional
+gem 'bulma-extensions-rails'
+# forms css
+gem 'simple_form', '~> 5.0', '>= 5.0.2'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'devise', '~> 4.7', '>= 4.7.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,6 +56,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors', '~> 2.4'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  gem 'guard-bundler'
+  gem 'rack-livereload'
 end
 
 group :test do
