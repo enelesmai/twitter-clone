@@ -7,9 +7,9 @@
             </p>
         </figure>
         <div class="media-content">
+            <%= render 'tweets/form' %>
         </div>
     </article>
-</div>
 
     <% @tweets.each do |tweet| %>
 
@@ -44,4 +44,4 @@
         </div>
     <% end %>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+    </div>
