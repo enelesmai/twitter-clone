@@ -1,5 +1,7 @@
 
 <div class="column is-half">
+    
+    <% if user_signed_in? %>
     <article class="media box">
         <figure class="media-left">
             <p class="image is-64x64">
@@ -10,6 +12,7 @@
             <%= render 'tweets/form' %>
         </div>
     </article>
+    <% end %>
 
     <% @tweets.each do |tweet| %>
 
@@ -26,19 +29,21 @@
                         <small><%= tweet.user.username %></small><br/>
                         <p><%= tweet.tweet %></p>
                     </div>
-                    <nav class="level">
-                        <div class="level-left is-mobile">
-                            <%= link_to tweet, class: "level-item" do %>
-                                <span class="icon"><i class="fa fa-link"></i></span>
-                            <% end %>
-                            <%= link_to edit_tweet_path(tweet), class: "level-item" do %>
-                                <span class="icon"><i class="fa fa-pencil"></i></span>
-                            <% end %>
-                            <%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } do %>
-                                <span class="icon"><i class="fa fa-trash"></i></span>
-                            <% end %>
-                        </div>
-                    </nav>
+                    <% if user_signed_in? %>
+                        <nav class="level">
+                            <div class="level-left is-mobile">
+                                <%= link_to tweet, class: "level-item" do %>
+                                    <span class="icon"><i class="fa fa-link"></i></span>
+                                <% end %>
+                                <%= link_to edit_tweet_path(tweet), class: "level-item" do %>
+                                    <span class="icon"><i class="fa fa-pencil"></i></span>
+                                <% end %>
+                                <%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } do %>
+                                    <span class="icon"><i class="fa fa-trash"></i></span>
+                                <% end %>
+                            </div>
+                        </nav>
+                    <% end %>
                 </div>
             </article>        
         </div>
