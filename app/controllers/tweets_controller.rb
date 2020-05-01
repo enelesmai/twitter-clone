@@ -1,18 +1,17 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_tweet, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
 
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all.order("created_at DESC")
+    @tweets = Tweet.all.order('created_at DESC')
     @tweet = Tweet.new
   end
 
-  # GET /tweets/1  
+  # GET /tweets/1
   # GET /tweets/1.json
-  def show
-  end
+  def show; end
 
   # GET /tweets/new
   def new
@@ -20,13 +19,12 @@ class TweetsController < ApplicationController
   end
 
   # GET /tweets/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tweets
   # POST /tweets.json
   def create
-    @tweet =  current_user.tweets.build(tweet_params)
+    @tweet = current_user.tweets.build(tweet_params)
 
     respond_to do |format|
       if @tweet.save
@@ -64,13 +62,14 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tweet_params
-      params.require(:tweet).permit(:tweet)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def tweet_params
+    params.require(:tweet).permit(:tweet)
+  end
 end
