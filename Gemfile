@@ -54,7 +54,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'better_errors', '~> 2.4'
+  gem 'better_errors', '~> 2.8'
   gem 'guard-bundler'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
   gem 'rack-livereload'
